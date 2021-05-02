@@ -1,0 +1,114 @@
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+      Post
+      <small>Preview</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Post</li>
+    </ol>
+  </section>
+  <section class="content">
+    <div class="box box-default">
+      <div class="box-header with-border">
+        <h3 class="box-title">Post</h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+        </div>
+      </div>
+      <div class="box-body">
+        <form name="form" (ngSubmit)="f.form.valid && createPost()" #f="ngForm" novalidate>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Post name</label>
+                <textarea name="postName" class="form-control" [(ngModel)]="post.postName" #postName="ngModel" rows="2"
+                          style="height: 44px" placeholder="Enter Post name..."
+                          [ngClass]="{ 'is-invalid': f.submitted && postName.invalid }" required></textarea>
+                <div *ngIf="f.submitted && postName.invalid" class="invalid-feedback">
+                  <div *ngIf="postName.errors.required">Post name is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Post Type</label>
+                <select name="postType" class="form-control select2" [(ngModel)]="post.postType" #postType="ngModel"
+                        style="width: 100%;" [ngClass]="{ 'is-invalid': f.submitted && postType.invalid}" required>
+                  <option selected="selected"></option>
+                  <option>Alaska</option>
+                  <option>California</option>
+                  <option>Delaware</option>
+                  <option>Tennessee</option>
+                  <option>Texas</option>
+                  <option>Washington</option>
+                </select>
+                <div *ngIf="f.submitted && postType.invalid" class="invalid-feedback">
+                  <div *ngIf="postType.errors.required">Post type is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Author</label>
+                <input name="author" type="text" class="form-control" [(ngModel)]="post.author" #author='ngModel'
+                       placeholder="Enter author..." [ngClass]="{ 'is-invalid': f.submitted && author.invalid}" required />
+                <div *ngIf="f.submitted && author.invalid" class="invalid-feedback">
+                  <div *ngIf="author.errors.required">Author is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="thumbnailImage">Thumbnail Image</label>
+                <input type="file" id="thumbnailImage" [(ngModel)]="post.thumbnailImage" name="thumbnailImage" #thumbnailImage="ngModel" [ngClass]="{ 'is-invalid': f.submitted && thumbnailImage.invalid}" required />
+                <div *ngIf="f.submitted && thumbnailImage.invalid" class="invalid-feedback">
+                  <div *ngIf="thumbnailImage.errors.required">File is required</div>
+                </div>
+                <p class="help-block">Example block-level help text here.</p>
+              </div>
+              <div class="form-group">
+
+              </div>
+              <div class="form-group">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="activePost" [(ngModel)]="post.activePost">
+                    Is Active Post
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="verifiedPost" [(ngModel)]="post.verifiedPost">
+                    Is Verified Post
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Meta Tag</label>
+                <input type="text" name="metaTag" class="form-control" [(ngModel)]="post.metaTag" #metaTag="ngModel"
+                       placeholder="Enter Meta tag..." [ngClass]="{ 'is-invalid': f.submitted && metaTag.invalid}"
+                       required>
+                <div *ngIf="f.submitted && metaTag.invalid" class="invalid-feedback">
+                  <div *ngIf="metaTag.errors.required">Meta tag is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Bolg</label>
+            <ckeditor [editor]="Editor" (ready)="onReady($event)" name="blog" [(ngModel)]="post.blog" #blog="ngModel"
+                      [ngClass]="{ 'is-invalid': f.submitted && blog.invalid}" required></ckeditor>
+            <div *ngIf="f.submitted && blog.invalid" class="invalid-feedback">
+              <div *ngIf="blog.errors.required">Blog detail is required</div>
+            </div>
+          </div>
+          <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-default pull-right">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>

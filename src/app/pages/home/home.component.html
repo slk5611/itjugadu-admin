@@ -1,0 +1,154 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Dashboard
+      <small>IT jugadu</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#" routerLinkActive="active" routerLink="/home"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Dashboard</li>
+    </ol>
+  </section>
+  <section class="content">
+    <div class="row">
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-aqua"><i class="ion-ios-people"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Register User</span>
+            <span class="info-box-number">{{oCount?.totalUser}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-red"><i class="fa fa-commenting-o"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Comments</span>
+            <span class="info-box-number">{{oCount?.totalComment}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix visible-sm-block"></div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-green"><i class="fa fa-file-text-o"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Post</span>
+            <span class="info-box-number">{{oCount?.totalPost}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-12">
+        <div class="info-box">
+          <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+          <div class="info-box-content">
+            <span class="info-box-text">Subscriber</span>
+            <span class="info-box-number">{{oCount?.totalSubscriber}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <!-- POST LIST -->
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title">Recently Added Posts</h3>
+
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+          <div class="box-body">
+            <ul class="products-list product-list-in-box">
+              <li class="item" *ngFor="let post of oPostData.slice(0,4)">
+                <div class="product-img">
+                  <img src="{{ imageUrl + post.thumbnailImage}}" alt="Post Image">
+                </div>
+                <div class="product-info">
+                  <a href="#" routerLinkActive="active" routerLink="/post" class="product-title">{{post.postName}}
+                    <span class="label label-success pull-right">{{post.postType}}</span></a>
+                  <span class="product-description">
+                          {{post.description}}
+                        </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="box-footer text-center">
+            <a href="#" routerLinkActive="active" routerLink="/post" class="uppercase">View All Post</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="info-box bg-yellow">
+          <span class="info-box-icon"><i class="fa fa-users"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">Visitors</span>
+            <span class="info-box-number">52</span>
+
+            <div class="progress">
+              <div class="progress-bar" style="width: 50%"></div>
+            </div>
+            <span class="progress-description">
+                    50% Increase in 3 Days
+                  </span>
+          </div>
+        </div>
+        <div class="info-box bg-green">
+          <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">Mentions</span>
+            <span class="info-box-number">92</span>
+
+            <div class="progress">
+              <div class="progress-bar" style="width: 20%"></div>
+            </div>
+            <span class="progress-description">
+                    20% Increase in 3 Days
+                  </span>
+          </div>
+        </div>
+        <div class="info-box bg-red">
+          <span class="info-box-icon"><i class="fa fa-user-circle-o"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">Admin</span>
+            <span class="info-box-number">1</span>
+
+            <div class="progress">
+              <div class="progress-bar" style="width: 70%"></div>
+            </div>
+            <span class="progress-description">
+                    70% Increase in 3 Days
+                  </span>
+          </div>
+        </div>
+        <div class="info-box bg-aqua">
+          <span class="info-box-icon"><i class="ion-ios-chatbubble-outline"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">Direct Messages</span>
+            <span class="info-box-number">{{oCount?.totalContact}}</span>
+
+            <div class="progress">
+              <div class="progress-bar" style="width: 40%"></div>
+            </div>
+            <span class="progress-description">
+                    40% Increase in 3 Days
+                  </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+ </div>
+<ngx-spinner></ngx-spinner>
